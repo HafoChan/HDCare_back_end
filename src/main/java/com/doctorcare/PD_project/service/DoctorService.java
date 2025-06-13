@@ -131,6 +131,9 @@ public class DoctorService {
 
         doctors = doctorPage.getContent().stream().peek(doctor -> {
             List<Schedule> schedule = scheduleRepository.findSchedule(doctor.getId(), LocalDate.now().toString());
+            for (Schedule s : schedule) {
+                s.setAvailable(s.getQuantityPatient() > s.getQuantityCurrent());
+            }
             doctor.setSchedules(schedule);
         }).toList();
 
