@@ -2,9 +2,10 @@ spring:
   application:
     name: PD_project
   datasource:
-    url: jdbc:mysql://localhost:3306/final_doctor
-    username: root
-    password: 123456@
+    url: jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/doctor
+    username: 3pPp29WZ1477fWf.root
+    password: RFQAE1DA8jp1KvPB
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,64 +18,56 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    host: fly.rmq.cloudamqp.com         # chỉ hostname thôi
+    port: 5671                          # cổng AMQPS chuẩn
+    username: puayndrt
+    password: bXNuO7bK2eqz0ubChduHoyn1bzVOGz0t
+    virtual-host: puayndrt              # tên vhost trên CloudAMQP
+    ssl:
+      enabled: true
 
-#    lazy-initialization: true
   mail:
     host: smtp.gmail.com
     port: 587
     username: alohcmute@gmail.com
     password: fpgi kacs tusk bbgr
-
     properties:
       mail:
         smtp:
-          auth : true
+          auth: true
           starttls:
-            enable:  true
+            enable: true
+
 springdoc:
   api-docs:
-    path : /api-docs
+    path: /api-docs
   swagger-ui:
     enabled: true
-#logging:
-#  level:
-#    root: WARN
-#    org:
-#      hibernate:
-#        SQL: TRACE
-#        type:
-#          descriptor:
-#            sql:
-#              BasicBinder: TRACE
-#        orm:
-#          jdbc:
-#          bind: TRACE
 
 server:
   port: 8082
   servlet:
     context-path: "/api/v1"
+
 outbound:
   identity:
-    client-id : ${ID}
-    client_secret : ${SECRET}
-    redirect-uri: ${URI}
-    grant-type : ${TYPE}
+    client-id: 1065779364851-u3g3011gttldhdvmbchtpha59j9vv5df.apps.googleusercontent.com
+    client_secret: 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
+    redirect-uri: https://hd-care-front-end.vercel.app/authenticate
+    grant-type: authorization_code
 
 jwt:
-  signerKey: ${KEYJWT}
+  signerKey: xxiZx4S9K4jCse8UI89bTPGihA9MXjHSob+hfnckRMo7yRlIO7xheltlc/+dKFv4
 
 token:
-  accessToken : "20"
-  refreshToken : "6"
-# application.yml
+  accessToken: "60"
+  refreshToken: "168"
 
 app:
   webhook:
-    uri: http://localhost:8082/api/v1/notification/webhook/receive
+    uri: http://hdcarebackend-production.up.railway.app/api/v1/notification/webhook/receive
+
+cloudinary:
+  url: cloudinary://119184151935168:pjmFk-c59Z21DOVYUMGb-cTXI80@dlokeyspj
 
 

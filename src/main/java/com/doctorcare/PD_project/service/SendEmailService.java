@@ -136,7 +136,7 @@ public class SendEmailService {
                         "        <p style=\"font-size: 16px; margin: 10px 0;\">Chúng tôi rất mong nhận được ý kiến đánh giá của bạn về dịch vụ và bác sĩ: <strong>%s</strong>. Những đánh giá của bạn là động lực để chúng tôi không ngừng cải thiện chất lượng dịch vụ.</p>" +
                         "        <div style=\"background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;\">" +
                         "            <p style=\"margin: 0; font-size: 16px;\">Vui lòng truy cập liên kết dưới đây để để lại đánh giá:</p>" +
-                        "            <a href=\"http://localhost:3000/home?evaluate=1&idAppointment=%s\" style=\"display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-size: 16px;\">Đánh giá ngay</a>" +
+                        "            <a href=\"https://hd-care-front-end.vercel.app/home?evaluate=1&idAppointment=%s\" style=\"display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-size: 16px;\">Đánh giá ngay</a>" +
                         "        </div>" +
                         "        <p style=\"margin: 20px 0; font-size: 16px;\">Chúng tôi rất trân trọng những đóng góp của bạn. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi qua email hoặc số hotline được cung cấp trên website.</p>" +
                         "        <p style=\"margin: 20px 0; font-size: 16px;\">Cảm ơn bạn đã đồng hành cùng HD_CARE. Chúc bạn một ngày tốt lành!</p>" +
@@ -168,7 +168,7 @@ public class SendEmailService {
                         "        <p style=\"font-size: 16px; margin: 10px 0;\">Đây là thông báo riêng tư cá nhân vui lòng bảo mật thông tin sau khi đổi mật khẩu</p>" +
                         "        <div style=\"background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;\">" +
                         "            <p style=\"margin: 0; font-size: 16px;\">Vui lòng truy cập liên kết dưới đây để để lại đổi mật khẩu:</p>" +
-                        "            <a href=\"http://localhost:3000/auth/resetPassword/%s\" style=\"display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-size: 16px;\">Đổi mật khẩu ngay</a>" +
+                        "            <a href=\"https://hd-care-front-end.vercel.app/auth/resetPassword/%s\" style=\"display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-size: 16px;\">Đổi mật khẩu ngay</a>" +
                         "        </div>" +
                         "        <p style=\"margin: 20px 0; font-size: 16px;\">Cảm ơn bạn đã đồng hành cùng HD_CARE. Chúc bạn một ngày tốt lành!</p>" +
                         "    </div>" +
@@ -185,7 +185,7 @@ public class SendEmailService {
 
     @Async
     public void sendActive(String token, OnRegisterEvent event) throws MessagingException {
-        String activationUrl = String.format("http://localhost:8082/api/v1/auth/verify?token=%s", token);
+        String activationUrl = String.format("http://hdcarebackend-production.up.railway.app/api/v1/auth/verify?token=%s", token);
         String subject = "Xác nhận tài khoản HD_CARE";
 
         String message = String.format(

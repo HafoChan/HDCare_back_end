@@ -26,7 +26,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@CrossOrigin(origins = "http://localhost:3000") // Chỉ cho phép localhost:3000 truy cập
+@CrossOrigin(origins = "https://hd-care-front-end.vercel.app") // Chỉ cho phép localhost:3000 truy cập
 
 public class AuthenticationController {
 

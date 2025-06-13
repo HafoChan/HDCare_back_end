@@ -90,7 +90,7 @@ public class AuthenticationService {
         if (user.isBlocked())
             throw new AppException(ErrorCode.USER_BLOCKED);
         if (!user.isEnable() ) {
-            applicationEventPublisher.publishEvent(new OnRegisterEvent(user, "http://localhost:8082/api/v1/patient", Locale.ENGLISH));
+            applicationEventPublisher.publishEvent(new OnRegisterEvent(user, "http://hdcarebackend-production.up.railway.app/v1/patient", Locale.ENGLISH));
             throw new AppException(ErrorCode.NO_ACTIVE);
         }
         var accessToken = generateAccess(user);
