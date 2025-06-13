@@ -8,18 +8,17 @@ import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 public class WebConfig {
-
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOriginPattern("http://localhost:3000");
-        config.addAllowedOriginPattern("https://hd-care-front-end.vercel.app");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        config.addAllowedOrigin("https://hd-care-front-end.vercel.app/"); // Allow requests from your frontend origin
+        config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedHeader("*"); // Allow all headers
+        config.addAllowedMethod("*"); // Allow all HTTP methods
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
+        source.registerCorsConfiguration("/**", config); // Apply to all endpoints
         return new CorsFilter(source);
     }
 }
