@@ -12,13 +12,18 @@ public class WebConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("https://hd-care-front-end.vercel.app/"); // Allow requests from your frontend origin
-        config.addAllowedOrigin("http://localhost:3000");
-        config.addAllowedHeader("*"); // Allow all headers
-        config.addAllowedMethod("*"); // Allow all HTTP methods
+
+        // Dùng pattern để cho phép linh hoạt
+        config.addAllowedOriginPattern("http://localhost:3000");
+        config.addAllowedOriginPattern("https://hd-care-front-end.vercel.app");
+        config.addAllowedOriginPattern("null"); // dành cho local preview file:// hoặc origin null
+
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config); // Apply to all endpoints
+        source.registerCorsConfiguration("/**", config);
+
         return new CorsFilter(source);
     }
 }
