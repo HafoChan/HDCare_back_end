@@ -185,7 +185,7 @@ public class SendEmailService {
 
     @Async
     public void sendActive(String token, OnRegisterEvent event) throws MessagingException {
-        String activationUrl = String.format("http://hdcarebackend-production.up.railway.app/api/v1/auth/verify?token=%s", token);
+        String activationUrl = String.format("https://hdcarebackend-production.up.railway.app/api/v1/auth/verify?token=%s", token);
         String subject = "Xác nhận tài khoản HD_CARE";
 
         String message = String.format(

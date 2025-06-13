@@ -65,7 +65,7 @@ token:
 
 app:
   webhook:
-    uri: http://hdcarebackend-production.up.railway.app/api/v1/notification/webhook/receive
+    uri: https://hdcarebackend-production.up.railway.app/api/v1/notification/webhook/receive
 
 cloudinary:
   url: cloudinary://119184151935168:pjmFk-c59Z21DOVYUMGb-cTXI80@dlokeyspj
